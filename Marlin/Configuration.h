@@ -459,7 +459,7 @@
 
 // Comment the following line to disable PID and enable bang-bang.
 #define PIDTEMP
-#define BANG_MAX 200    // Limits current to nozzle while in bang-bang mode; 255=full current
+#define BANG_MAX 255    // Limits current to nozzle while in bang-bang mode; 255=full current
 #define PID_MAX BANG_MAX // Limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 #define PID_K1 0.95      // Smoothing factor within any PID loop
 #if ENABLED(PIDTEMP)
@@ -476,10 +476,9 @@
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
   // Ghost 4
-  // TODO calibrate
-  #define DEFAULT_Kp 14.64//16.24
-  #define DEFAULT_Ki 1.01//1.17
-  #define DEFAULT_Kd 53.07//56.21
+  #define DEFAULT_Kp 17.17
+  #define DEFAULT_Ki 1.24
+  #define DEFAULT_Kd 59.21
 
   // Default
   //#define DEFAULT_Kp 22.2
@@ -515,7 +514,7 @@
  * heater. If your configuration is significantly different than this and you don't understand
  * the issues involved, don't use bed PID until someone else verifies that your hardware works.
  */
-//#define PIDTEMPBED
+#define PIDTEMPBED
 
 //#define BED_LIMIT_SWITCHING
 
@@ -534,9 +533,10 @@
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
 
-  #define DEFAULT_bedKp 155.79
-  #define DEFAULT_bedKi 24.7
-  #define DEFAULT_bedKd 245.67
+  // Ghost 4
+  #define DEFAULT_bedKp 67.91
+  #define DEFAULT_bedKi 13.57
+  #define DEFAULT_bedKd 226.58
 
   // default
   //#define DEFAULT_bedKp 10.00
@@ -730,10 +730,6 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-
-// TODO calibrate
-// default
-//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 500 }
 
 // Ghost 4 
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 411 }
